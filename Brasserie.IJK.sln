@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.5.11801.241 oobstable
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brasserie.IJK", "src\Brasserie.IJK\Brasserie.IJK.csproj", "{9CA7C00B-0A0D-2C65-2631-2C540B2AFD1D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9CA7C00B-0A0D-2C65-2631-2C540B2AFD1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CA7C00B-0A0D-2C65-2631-2C540B2AFD1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CA7C00B-0A0D-2C65-2631-2C540B2AFD1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CA7C00B-0A0D-2C65-2631-2C540B2AFD1D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4DC1F173-6612-4AC0-8D71-0110359C5D6E}
+	EndGlobalSection
+EndGlobal

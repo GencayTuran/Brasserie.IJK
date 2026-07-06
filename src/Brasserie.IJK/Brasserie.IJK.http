@@ -1,0 +1,6 @@
+@Brasserie.IJK_HostAddress = http://localhost:5180
+
+GET {{Brasserie.IJK_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
