@@ -1,14 +1,13 @@
-﻿using Brasserie.IJK.Api.Domain.Customers;
+﻿using Brasserie.IJK.Api.Domain.Common;
+using Brasserie.IJK.Api.Domain.Customers;
 
 namespace Brasserie.IJK.Api.Domain.Orders
 {
-    public class Order
+    public class Order : AggregateRoot
     {
         private readonly List<OrderLine> _orderlines = [];
 
-        public Guid Id { get; set; }
-
-        public Guid CustomerId { get; set; }
+        public int CustomerId { get; set; }
 
         public Customer Customer { get; set; } = null!;
 

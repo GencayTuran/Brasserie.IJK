@@ -6,7 +6,7 @@
         {
         }
 
-        protected AggregateRoot(Guid id) 
+        protected AggregateRoot(int id) 
             : base(id)
         {
         }

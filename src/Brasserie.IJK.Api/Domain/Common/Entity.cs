@@ -6,7 +6,6 @@
 
         protected Entity()
         {
-
         }
 
         protected Entity(int id)
