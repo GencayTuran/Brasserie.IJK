@@ -1,7 +1,9 @@
 ﻿using Brasserie.IJK.Domain.Shared;
+using Microsoft.EntityFrameworkCore;
 
 namespace Brasserie.IJK.Domain.Customers
 {
+    [Owned]
     public record PersonalInfo
     {
         public required string FirstName { get; init; }

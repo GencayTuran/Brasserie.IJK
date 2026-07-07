@@ -1,5 +1,8 @@
-﻿namespace Brasserie.IJK.Domain.Customers
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Brasserie.IJK.Domain.Customers
 {
+    [Owned]
     public record AddressInfo
     {
         public required string Street { get; init; }
