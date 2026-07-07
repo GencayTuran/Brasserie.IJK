@@ -1,4 +1,5 @@
 ﻿using Brasserie.IJK.Application.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Brasserie.IJK.Api.Endpoints.Product
 {
@@ -8,10 +9,22 @@ namespace Brasserie.IJK.Api.Endpoints.Product
         {
             var group = app.MapGroup("/products");
 
-            group.MapPost("/index-prices", async (
+            group.MapGet("/", async (IProductService productService) =>
+            {
+                var result = await productService.GetAllAsync();
+                return Results.Ok(result);
+            });
+
+
+            group.MapPost("/", async (
+                [FromQuery] string indexBy,
                 IProductService productService) =>
             {
-                var result = await productService.IndexPricesAsync();
+                if (!decimal.TryParse(indexBy, out decimal percentage))
+                    Results.BadRequest($"Invalid value for parameter {nameof(indexBy)}.");
+
+                var result = await productService.IndexPricesAsync(percentage);
+
                 return Results.Ok(result);
             });
 

@@ -1,5 +1,6 @@
 using Brasserie.IJK.Api.Endpoints.Customer;
 using Brasserie.IJK.Api.Endpoints.Order;
+using Brasserie.IJK.Api.Endpoints.Product;
 using Brasserie.IJK.Application.Interfaces;
 using Brasserie.IJK.Application.Services;
 using Brasserie.IJK.Infrastructure.Persistence;
@@ -37,5 +38,6 @@ app.UseHttpsRedirection();
 
 app.MapCustomerEndpoints();
 app.MapOrderEndpoints();
+app.MapProductEndpoints();
 
 app.Run();

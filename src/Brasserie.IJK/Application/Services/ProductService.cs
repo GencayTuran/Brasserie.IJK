@@ -11,15 +11,21 @@ namespace Brasserie.IJK.Application.Services
     {
         private readonly BrasserieDbContext _dbContext = dbContext;
 
+        public async Task<IReadOnlyCollection<ProductResponse>> GetAllAsync()
+        {
+            var products = await _dbContext.Products.ToListAsync();
+            return [.. products.Select(ProductMapper.ToResponse)];
+        }
+
         public async Task<Product?> GetByIdAsync(int id)
             => await _dbContext.Products.FindAsync(id);
 
-        public async Task<IReadOnlyCollection<ProductResponse>> IndexPricesAsync()
+        public async Task<IReadOnlyCollection<ProductResponse>> IndexPricesAsync(decimal percentage)
         {
             var products = await _dbContext.Products.ToListAsync();
             
             foreach (var p in products)
-                p.IndexPrice();
+                p.IndexPrice(percentage);
 
             await _dbContext.SaveChangesAsync();
 

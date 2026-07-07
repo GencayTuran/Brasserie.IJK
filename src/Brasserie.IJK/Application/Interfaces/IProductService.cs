@@ -6,7 +6,8 @@ namespace Brasserie.IJK.Application.Interfaces
 {
     public interface IProductService
     {
+        Task<IReadOnlyCollection<ProductResponse>> GetAllAsync();
         Task<Product?> GetByIdAsync(int id);
-        Task<IReadOnlyCollection<ProductResponse>> IndexPricesAsync();
+        Task<IReadOnlyCollection<ProductResponse>> IndexPricesAsync(decimal percentage);
     }
 }

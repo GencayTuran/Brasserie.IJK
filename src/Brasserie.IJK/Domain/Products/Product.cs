@@ -12,9 +12,9 @@ namespace Brasserie.IJK.Domain.Products
 
         public ProductType ProductType { get; set; }
 
-        internal void IndexPrice()
+        public void IndexPrice(decimal percentage)
         {
-            throw new NotImplementedException();
+            Price += Price * percentage;
         }
     }
 }
