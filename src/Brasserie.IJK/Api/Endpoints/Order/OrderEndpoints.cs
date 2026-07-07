@@ -6,7 +6,6 @@ namespace Brasserie.IJK.Api.Endpoints.Order
 {
     public static class CustomerEndpoints
     {
-
         public static IEndpointRouteBuilder MapOrderEndpoints(this IEndpointRouteBuilder app)
         {
             var group = app.MapGroup("/orders");
@@ -53,10 +52,13 @@ namespace Brasserie.IJK.Api.Endpoints.Order
                 UpdateOrderRequest request,
                 IOrderService orderService) =>
             {
+                if (string.IsNullOrEmpty(request.Status))
+                    return Results.BadRequest("Body of update request is invalid");
+
                 var updated = await orderService.UpdateAsync(id, request);
 
                 return updated is null
-                    ? Results.NotFound($"Order with id {id} does not exist.")
+                    ? Results.BadRequest($"Order with id {id} does not exist or body of the request is invalid.") 
                     : Results.Ok(updated);
             });
 

@@ -63,17 +63,19 @@ namespace Brasserie.IJK.Application.Services
         public async Task<OrderResponse?> UpdateAsync(int id, UpdateOrderRequest request)
         {
             var order = await _dbContext.Orders
-                .Include(x => x.OrderLines)
                 .FirstOrDefaultAsync(x => x.Id == id);
 
             if (order is null)
                 return null;
 
-            OrderMapper.UpdateDomain(order, request);
+            var isValidStatus = Enum.TryParse(request.Status, ignoreCase: true, out OrderStatus orderStatus);
+            if (!isValidStatus)
+                return null; // should better return a specific Result such as invalidRequest instead of an ambiguous null.
+
+            order.SetStatus(orderStatus);
 
             await _dbContext.SaveChangesAsync();
             return OrderMapper.ToResponse(order);
         }
-
     }
 }

@@ -34,6 +34,11 @@ namespace Brasserie.IJK.Domain.Orders
             Status = status;
         }
 
+        public void SetOrderDate()
+        {
+            OrderDate = DateTime.UtcNow;
+        }
+
         public void AddOrderLine(Product product, int quantity)
         {
             _orderlines.Add(new OrderLine 
@@ -43,11 +48,6 @@ namespace Brasserie.IJK.Domain.Orders
                 Quantity = quantity,
                 UnitPrice = product.Price
             });
-        }
-
-        public void SetOrderDate()
-        {
-            OrderDate = DateTime.UtcNow;
         }
     }
 }
