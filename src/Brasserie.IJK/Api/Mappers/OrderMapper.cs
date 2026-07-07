@@ -59,10 +59,5 @@ namespace Brasserie.IJK.Api.Mappers
                 ]
             };
         }
-
-        internal static void UpdateDomain(Order order, UpdateOrderRequest request)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

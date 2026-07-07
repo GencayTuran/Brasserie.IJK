@@ -26,7 +26,7 @@ namespace Brasserie.IJK.Domain.Orders
 
         public decimal CalculateVatAmount(VatRate rate)
         {
-            return _orderlines.Sum(x => x.Quantity * x.UnitPrice) * ((int)rate / 100);
+            return _orderlines.Sum(x => x.Quantity * x.UnitPrice) * ((decimal)rate / 100m);
         }
 
         public void SetStatus(OrderStatus status)

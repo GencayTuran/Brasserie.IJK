@@ -48,6 +48,7 @@ namespace Brasserie.IJK.Application.Services
         {
             var order = await _dbContext.Orders
                 .Include(x => x.OrderLines)
+                    .ThenInclude(x => x.Product)
                 .FirstOrDefaultAsync(x => x.Id == id);
 
             if (order is null)
