@@ -40,21 +40,20 @@ namespace Brasserie.IJK.Infrastructure.Persistence
 
             dbContext.Products.AddRange(burger, fries, cola);
 
-            var customer = new Customer
-            {
-                PersonalInfo = new PersonalInfo
+            var customer = Customer.Create(
+                new PersonalInfo
                 {
                     FirstName = "John",
                     LastName = "Doe",
                     DateOfBirth = new DateOnly(1990,1,1),
                     Gender = Gender.Male
                 },
-                ContactInfo = new ContactInfo
+                new ContactInfo
                 {
                     EmailAddress = "john.doe@email.com",
                     PhoneNumber = "0123456789"                    
                 },
-                AddressInfo = new AddressInfo
+                new AddressInfo
                 {
                     Street = "Main Street",
                     HouseNumber = "12",
@@ -62,7 +61,7 @@ namespace Brasserie.IJK.Infrastructure.Persistence
                     City = "Eindhoven",
                     Country = "NL"
                 }
-            };
+            );
 
             var order = new Order
             {

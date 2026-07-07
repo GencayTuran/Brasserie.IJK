@@ -22,13 +22,11 @@ namespace Brasserie.IJK.Api.Mappers
 
         public static Customer ToDomain(CreateCustomerRequest request)
         {
-            return new Customer
-            {
-                PersonalInfo = request.PersonalInfo,
-                ContactInfo = request.ContactInfo,
-                AddressInfo = request.AddressInfo,
-                Orders = []
-            };
+            return Customer.Create(
+                request.PersonalInfo,
+                request.ContactInfo,
+                request.AddressInfo
+            );
         }
 
         internal static void UpdateDomain(Customer customer, UpdateCustomerRequest request)

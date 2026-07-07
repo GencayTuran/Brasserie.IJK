@@ -17,13 +17,13 @@ namespace Brasserie.IJK.Application.Services
         public async Task<IReadOnlyCollection<ProductResponse>> IndexPricesAsync()
         {
             var products = await _dbContext.Products.ToListAsync();
-
+            
             foreach (var p in products)
                 p.IndexPrice();
 
             await _dbContext.SaveChangesAsync();
 
-            return products.Select(ProductMapper.ToResponse).ToList();
+            return [.. products.Select(ProductMapper.ToResponse)];
         }
 
     }

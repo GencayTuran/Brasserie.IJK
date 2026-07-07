@@ -1,5 +1,6 @@
 ﻿using Brasserie.IJK.Application.Interfaces;
 using Brasserie.IJK.Contracts.Customers;
+using Brasserie.IJK.Domain.Customers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Brasserie.IJK.Api.Endpoints.Customer
