@@ -28,10 +28,5 @@ namespace Brasserie.IJK.Api.Mappers
                 request.AddressInfo
             );
         }
-
-        internal static void UpdateDomain(Customer customer, UpdateCustomerRequest request)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

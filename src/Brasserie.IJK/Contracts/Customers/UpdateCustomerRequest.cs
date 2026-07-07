@@ -1,5 +1,4 @@
-﻿using Brasserie.IJK.Domain.Customers;
-using Brasserie.IJK.Domain.Shared;
+﻿using Brasserie.IJK.Domain.Shared;
 
 namespace Brasserie.IJK.Contracts.Customers
 {
