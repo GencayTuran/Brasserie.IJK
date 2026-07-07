@@ -11,5 +11,10 @@ namespace Brasserie.IJK.Domain.Products
         public int QuantityInStock { get; set; }
 
         public ProductType ProductType { get; set; }
+
+        internal void IndexPrice()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
