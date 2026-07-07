@@ -1,5 +1,7 @@
 ﻿using Brasserie.IJK.Domain.Common;
 using Brasserie.IJK.Domain.Customers;
+using Brasserie.IJK.Domain.Products;
+using Brasserie.IJK.Domain.Shared;
 
 namespace Brasserie.IJK.Domain.Orders
 {
@@ -16,5 +18,36 @@ namespace Brasserie.IJK.Domain.Orders
         public OrderStatus Status { get; set; }
 
         public IReadOnlyCollection<OrderLine> OrderLines => _orderlines;
+
+        public decimal CalculateSubtotal()
+        {
+            return _orderlines.Sum(x => x.Quantity * x.UnitPrice);
+        }
+
+        public decimal CalculateVatAmount(VatRate rate)
+        {
+            return _orderlines.Sum(x => x.Quantity * x.UnitPrice) * ((int)rate / 100);
+        }
+
+        public void SetStatus(OrderStatus status)
+        {
+            Status = status;
+        }
+
+        public void AddOrderLine(Product product, int quantity)
+        {
+            _orderlines.Add(new OrderLine 
+            { 
+                Product = product,
+                ProductId = product.Id,
+                Quantity = quantity,
+                UnitPrice = product.Price
+            });
+        }
+
+        public void SetOrderDate()
+        {
+            OrderDate = DateTime.UtcNow;
+        }
     }
 }

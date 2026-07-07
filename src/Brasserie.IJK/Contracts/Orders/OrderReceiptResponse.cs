@@ -1,7 +1,6 @@
-﻿
-namespace Brasserie.IJK.Contracts.Orders
+﻿namespace Brasserie.IJK.Contracts.Orders
 {
-    public class OrderResponse
+    public class OrderReceiptResponse
     {
         public int Id { get; set; }
 
@@ -9,9 +8,12 @@ namespace Brasserie.IJK.Contracts.Orders
 
         public DateTime OrderDate { get; set; }
 
-        public string Status { get; set; } = string.Empty;
+        public decimal Subtotal { get; set; }
 
-        public decimal TotalPrice { get; set; }
+        public decimal Total { get; set; }
+
+        public decimal VatAmount { get; set; }
+
 
         public IReadOnlyCollection<OrderLineResponse> OrderLines { get; set; } = [];
     }
